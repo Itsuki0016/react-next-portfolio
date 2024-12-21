@@ -1,0 +1,25 @@
+.shooting-star {
+    width: 150px;
+    height: 2px;
+    background: white;
+    position: absolute;
+    transform: rotate(45deg);
+    animation: shooting 2s infinite ease-in-out;
+    }
+    
+    @keyframes shooting {
+        0% {
+        top: -50px;
+        left: -50px;
+        opacity: 0;
+        }
+        50% {
+        opacity: 1;
+        }
+        100% {
+        top: 100%;
+        left: 100%;
+        opacity: 0;
+        }
+    }
+    
