@@ -1,35 +1,35 @@
 (function ($) {
 	"use strict";
 	var nav = $('nav');
-  var navHeight = nav.outerHeight();
-  
-  $('.navbar-toggler').on('click', function() {
+var navHeight = nav.outerHeight();
+
+$('.navbar-toggler').on('click', function() {
     if( ! $('#mainNav').hasClass('navbar-reduce')) {
-      $('#mainNav').addClass('navbar-reduce');
+$('#mainNav').addClass('navbar-reduce');
     }
-  })
+})
 
   // Preloader
-  $(window).on('load', function () {
+$(window).on('load', function () {
     if ($('#preloader').length) {
-      $('#preloader').delay(100).fadeOut('slow', function () {
+	$('#preloader').delay(100).fadeOut('slow', function () {
         $(this).remove();
-      });
+    });
     }
-  });
+});
 
   // Back to top button
-  $(window).scroll(function() {
+$(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
+	$('.back-to-top').fadeIn('slow');
     } else {
-      $('.back-to-top').fadeOut('slow');
+$('.back-to-top').fadeOut('slow');
     }
-  });
-  $('.back-to-top').click(function(){
+});
+$('.back-to-top').click(function(){
     $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
     return false;
-  });
+});
 
 	/*--/ Star ScrollTop /--*/
 	$('.scrolltop-mf').on("click", function () {
