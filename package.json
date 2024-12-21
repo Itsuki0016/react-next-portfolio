@@ -12,10 +12,11 @@
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "microcms-js-sdk": "^3.1.0",
-    "next": "14.1.4",
+    "next": "^14.2.21",
     "nextjs-basic-auth-middleware": "^3.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-simple-typewriter": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,40 +1,23 @@
-import styles from "./page.module.css";
-import Image from "next/image";
-import { TOP_NEWS_LIMIT } from '@/app/constants'
-import { getNewsList } from '@/app/libs/microcms'
-import NewsList from "@/app/_components/NewsList";
-import ButtonLink from "@/app/_components/ButtonLink";
+"use client";
 
+import React from "react";
+import Navbar from "@/app/components/Navbar";
+import Intro from "@/app/components/Intro";
+import About from "@/app/components/About";
+import Portfolio from "@/app/components/Portfolio";
+import Contact from "@/app/components/Contact";
+import "@/app/styles/globals.css";
 
-
-
-
-export default async function Home(){
-  const data = await getNewsList({limit:TOP_NEWS_LIMIT,});
-
-  return(
-    <>
-      <section className={styles.top}>
+const HomePage = () => {
+    return (
         <div>
-          <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
-          <p className={styles.decriptiobn}>私たちは市場をリードしているグローバルテックカンパニーです。</p>
-        </div>
-        <Image
-        className = {styles.bgimg}
-        src = "/img-mv.jpg"
-        alt = ""
-        width = {4000}
-        height = {1200}
-        />  
-      </section>
+        <Navbar />
+        <Intro />
+        <About />
+        <Portfolio />
+        <Contact />
+    </div>
+    );
+};
 
-      <section className={styles.news}> 
-        <h2 className={styles.newstitle}>News</h2>
-        <NewsList news={data.contents} />
-        <div className={styles.newsLink}>
-          <ButtonLink href="/news">もっと見る</ButtonLink>
-        </div>
-      </section>
-    </>
-  );
-}
+export default HomePage;

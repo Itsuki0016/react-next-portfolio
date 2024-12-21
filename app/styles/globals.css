@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #0078ff;
+    padding: 1rem;
+}
+
+.intro {
+    text-align: center;
+    padding: 5rem 0;
+    background-color: #f5f5f5;
+}
+
+section {
+    padding: 2rem;
+}
