@@ -36,3 +36,57 @@ body {
 .about {
     font-family: "Jersey 15", sans-serif;
 }
+
+/* horizontal.css */
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    height: 30vh;
+    width: 100vw;
+    background-color: #1e1e1e; /* 回路図の背景色 */
+}
+/* スクロールバーを非表示にする */
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+
+.scroll-section {
+    flex: 0 0 100vw;
+    scroll-snap-align: start;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+}
+
+  /* 回路の背景要素を追加 */
+.circuit-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('/path-to-circuit-background.svg') no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* circuit-animation.css */
+.circuit-bg {
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.5;
+        filter: brightness(0.8);
+    }
+    100% {
+        opacity: 1;
+        filter: brightness(1.2);
+    }
+}
