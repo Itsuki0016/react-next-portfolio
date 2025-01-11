@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap');
+
+
+
 body {
+    font-family: 'Playwrite VN', sans-serif;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -26,4 +31,3 @@ body {
     text-decoration: none;
     color: white;
 }
-
