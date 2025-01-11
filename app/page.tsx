@@ -10,7 +10,6 @@ import NightSky from "@/app/components/NightSky";
 import dynamic from "next/dynamic";
 import "@/app/styles/globals.css";
 
-const NightSky = dynamic(() => import("@/app/components/NightSky"), { ssr: false });
 
 const HomePage = () => {
     return (
