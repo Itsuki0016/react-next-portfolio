@@ -1,0 +1,50 @@
+/* デフォルトテーマ */
+body[data-theme="dark"] {
+    background-color: #000;
+    color: #fff;
+}
+
+body[data-theme="light"] {
+    background-color: #87CEEB;
+    color: #000;
+}
+
+.theme-switch-container {
+    position: fixed; /* 固定位置 */
+    top: 10px; /* 上から10px */
+    left: 10px; /* 左から10px */
+    z-index: 1000; /* 他の要素より上に配置 */
+}
+
+.theme-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-switch.light {
+    background-color: #3399ff;
+}
+
+.theme-switch.dark {
+    background-color: #4b4b4b;
+}
+
+.theme-toggle-circle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.theme-switch.light .theme-toggle-circle {
+    transform: translateX(30px);
+}
