@@ -11,26 +11,64 @@ body {
     color: white;
 }
 
+.intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 3rem;
+    font-family: "Jersey 15", sans-serif;
+}
+
 .navbar {
-    background: #333;
-    top: 0;
-    width: 100%;
+    top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.navbar-scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 1rem 2rem;
-    z-index: 10;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
 }
 
-.navbar ul {
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
     list-style: none;
-    position: relative;
-    display: flex;
-    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-.navbar a {
+
+.menu-dropdown li a {
     text-decoration: none;
     color: white;
+}
+
+.menu-dropdown li a:hover {
+    background-color: #f1f1f1;
 }
 
 .about {
@@ -45,12 +83,13 @@ body {
     height: 30vh;
     width: 100vw;
     background-color: #1e1e1e; /* 回路図の背景色 */
+    overflow-x: hidden;
+    max-width: 100%;
 }
 /* スクロールバーを非表示にする */
 .horizontal-scroll-container::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
 }
-
 
 .scroll-section {
     flex: 0 0 100vw;
@@ -64,16 +103,6 @@ body {
     position: relative;
 }
 
-  /* 回路の背景要素を追加 */
-.circuit-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('/path-to-circuit-background.svg') no-repeat center;
-    background-size: cover;
-    z-index: -1;
-    opacity: 0.5;
-}
 
 /* circuit-animation.css */
 .circuit-bg {
