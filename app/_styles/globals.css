@@ -9,6 +9,8 @@ body {
     padding: 0;
     background: black;
     color: white;
+    overflow-x: hidden; /* 横スクロールを無効化 */
+    overflow-y: auto; /* 縦スクロールを有効化 */
 }
 
 .intro{
@@ -58,7 +60,6 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
 }
 
 
@@ -102,7 +103,14 @@ body {
     font-size: 2rem;
     position: relative;
 }
-
+.horizontal-scroll-container {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    height: 30vh;
+    width: 100vw;
+    background-color: #1e1e1e; /* 回路図の背景色 */
+    overflow-x:scroll;
+}
 
 /* circuit-animation.css */
 .circuit-bg {

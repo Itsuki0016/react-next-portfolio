@@ -1,0 +1,76 @@
+.moon-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000; /* 夜空の背景色 */
+    overflow: hidden;
+}
+
+.moon {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #f8f8f8 40%, #d9d9d9 70%, #bfbfbf 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.8),
+        0 0 120px rgba(255, 255, 255, 0.6),
+        0 0 180px rgba(255, 255, 255, 0.4);
+    z-index: -1; /* 最背面に固定 */
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.shooting-star {
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: rotate(-45deg);
+    animation: shoot 5s infinite ease-in-out;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translate(0, 0) rotate(-45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-200vw, 200vh) rotate(-45deg);
+        opacity: 0;
+    }
+}
