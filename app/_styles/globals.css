@@ -75,44 +75,53 @@ body {
     font-family: "Jersey 15", sans-serif;
 }
 
-/* horizontal.css */
+/* 横スクロール全体の設定 */
 .horizontal-scroll-container {
     display: flex;
-    overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    height: 30vh;
     width: 100vw;
-    background-color: #1e1e1e; /* 回路図の背景色 */
-    overflow-x: hidden;
+    height: 80vh; /* 画面全体を占有 */
+    background-image: url("/Image-Face.jpg"); /* 修正済みパス */
+    background-size: cover; /* 画像をコンテナにフィット */
+    background-position: center; /* 中央に配置 */
+    background-repeat: no-repeat;  /* 背景 */
+    overflow-x: scroll;
     max-width: 100%;
 }
-/* スクロールバーを非表示にする */
-.horizontal-scroll-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
-}
 
+/* 各セクションのスタイル */
 .scroll-section {
-    flex: 0 0 100vw;
+    flex: 0 0 100vw; /* 横幅を画面全体に設定 */
     scroll-snap-align: start;
-    height: 100%;
+    height: 100%; /* セクションの高さを100vhに設定 */
     display: flex;
+    flex-direction: column; /* 縦方向に要素を並べる */
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 2rem;
+    color: cyan;
     position: relative;
 }
-.horizontal-scroll-container {
-    display: flex;
-    scroll-snap-type: x mandatory;
-    height: 30vh;
-    width: 100vw;
-    background-color: #1e1e1e; /* 回路図の背景色 */
-    overflow-x:scroll;
+
+.scroll-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-/* circuit-animation.css */
+.scroll-section p {
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 80%;
+    line-height: 1.8;
+}
+
+/* 背景アニメーション */
 .circuit-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 背景を後ろに配置 */
     animation: glow 3s infinite alternate;
 }
 
@@ -125,4 +134,9 @@ body {
         opacity: 1;
         filter: brightness(1.2);
     }
+}
+
+/* スクロールバーを非表示 */
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
 }
