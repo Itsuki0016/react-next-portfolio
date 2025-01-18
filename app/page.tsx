@@ -7,6 +7,7 @@ import About from "@/app/_components/About";
 import Portfolio from "@/app/_components/Portfolio";
 import Contact from "@/app/_components/Contact/Contact";
 import Sky from "@/app/_components/Sky/Sky";
+import Footer from "@/app/_components/Footer/Footer";
 import "@/app/_styles/globals.css";
 
 
@@ -23,6 +24,7 @@ const Page = () => {
             <h1>Welcome to My Portfolio</h1>
             <p>Explore the universe of my work!</p>
         </div>
+        <Footer />
     </div>
     );
 };
