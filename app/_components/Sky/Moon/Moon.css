@@ -1,11 +1,3 @@
-.moon-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000; /* 夜空の背景色 */
-    overflow: hidden;
-}
-
 .moon {
     position: fixed;
     top: 10%;

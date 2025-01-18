@@ -6,13 +6,7 @@
     transition: background-color 0.5s ease;
 }
 
-.sky-container.light {
-    background: linear-gradient(to bottom, #87CEEB, #87CEFA); /* 青空 */
-}
 
-.sky-container.dark {
-    background: #000; /* 星空 */
-}
 
 /* デフォルトテーマ */
 body[data-theme="dark"] {

@@ -7,7 +7,7 @@ const Intro = () => (
         Hello, I am{" "}
         <span>
             <Typewriter
-            words={["Murata Itsuki", "A Developer", " KTC Student"]}
+            words={["Murata Itsuki", "A Developer", " KTC Student","pen"]}
             loop
             typeSpeed={70}
             deleteSpeed={50}

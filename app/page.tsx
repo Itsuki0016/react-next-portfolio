@@ -5,7 +5,7 @@ import Navbar from "@/app/_components/Navbar";
 import Intro from "@/app/_components/Intro";
 import About from "@/app/_components/About";
 import Portfolio from "@/app/_components/Portfolio";
-import Contact from "@/app/_components/Contact";
+import Contact from "@/app/_components/Contact/Contact";
 import Sky from "@/app/_components/Sky/Sky";
 import "@/app/_styles/globals.css";
 
