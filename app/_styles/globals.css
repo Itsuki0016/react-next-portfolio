@@ -41,6 +41,7 @@ body {
     width: 30px;
     height: 20px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .dot {
@@ -48,6 +49,20 @@ body {
     height: 8px;
     background-color: white;
     border-radius: 50%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-icon.open .dot:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.open .dot:nth-child(2) {
+    opacity: 0; /* 真ん中のドットを消す */
+    transform: scale(0);
+}
+
+.menu-icon.open .dot:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .menu-dropdown {
