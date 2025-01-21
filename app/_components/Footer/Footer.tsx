@@ -24,7 +24,7 @@ const Footer = () => {
                         />
                     </a>
                     <a
-                        href="https://github.com/Itsuki0016/my-next-project"
+                        href="https://github.com/Itsuki0016/react-next-portfolio"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
