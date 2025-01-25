@@ -17,9 +17,9 @@ const Contact = () => {
             // HubSpotフォームをレンダリング
             if (window.hbspt) {
                 window.hbspt.forms.create({
-                    portalId: "48458753", // あなたのHUBSPOT_PORTAL_ID
-                    formId: "bd6ff507-e991-436f-a82a-7a455d384403", // あなたのHUBSPOT_FORM_ID
-                    target: "#hubspotForm", // フォームを埋め込むターゲット要素
+                    portalId: "48458753", 
+                    formId: "bd6ff507-e991-436f-a82a-7a455d384403",
+                    target: "#hubspotForm", 
                 });
             }
         };

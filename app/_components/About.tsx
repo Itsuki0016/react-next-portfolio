@@ -1,6 +1,6 @@
 import React from 'react';
 import Horizontail from "@/app/_components/Horizontail";
-
+import "@/app/_styles/globals.css";
 
 const About = () => (
     <section id="about">

@@ -36,7 +36,7 @@ const Footer = () => {
                     </a>
                 </div>
                 <p className="footer-copyright">
-                    &copy; {currentYear} Made with ♥ by [Itsuki].
+                    &copy; {currentYear} Made with ♥ by Itsuki.
                 </p>
             </div>
             <button onClick={scrollToTop} className="scroll-top-btn">
