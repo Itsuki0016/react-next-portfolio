@@ -1,40 +1,82 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./Contact.css";
 
-declare global {
-    interface Window {
-        hbspt: any;
-    }
-}
-
 const Contact = () => {
-    useEffect(() => {
-        // HubSpotのスクリプトを読み込む
-        const script = document.createElement("script");
-        script.src = "https://js.hsforms.net/forms/v2.js";
-        script.async = true;
-        script.onload = () => {
-            // HubSpotフォームをレンダリング
-            if (window.hbspt) {
-                window.hbspt.forms.create({
-                    portalId: "48458753", 
-                    formId: "bd6ff507-e991-436f-a82a-7a455d384403",
-                    target: "#hubspotForm", 
-                });
-            }
-        };
-        document.body.appendChild(script);
+    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [successMessage, setSuccessMessage] = useState("");
 
-        return () => {
-            // スクリプトをクリーンアップ
-            document.body.removeChild(script);
-        };
-    }, []);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const response = await fetch("/api/send-email", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                ...formData,
+                to: "ktc24a31e0016@edu.kyoto-tech.ac.jp"
+            }),
+        });
+
+        if (response.ok) {
+            setSuccessMessage("Your message has been sent successfully!");
+            setFormData({ name: "", email: "", message: "" });
+        } else {
+            setSuccessMessage("There was an error sending your message. Please try again later.");
+        }
+    };
 
     return (
         <section id="contact" className="contact-section">
-            <h2 className="contact-title">Contact Me</h2>
-            <div id="hubspotForm"></div> {/* HubSpotフォームの埋め込み先 */}
+            <div className="contact-container">
+                <h2 className="contact-title">Contact Me</h2>
+                <p className="contact-description">
+                    Have a project in mind or just want to say hello? Fill out the form below and let's connect!
+                </p>
+                <form onSubmit={handleSubmit} className="contact-form">
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Your Name"
+                            required
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Your Email"
+                            required
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="Your Message"
+                            rows={5}
+                            required
+                            className="form-control"
+                        ></textarea>
+                    </div>
+                    <button type="submit" className="submit-button">Send Message</button>
+                </form>
+                {successMessage && <p className="success-message">{successMessage}</p>}
+            </div>
         </section>
     );
 };
