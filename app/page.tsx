@@ -21,7 +21,7 @@ const Page = () => {
         <Articles />
         <Contact />
         <Sky />
-        <div style={{ position: "relative", zIndex: 2, textAlign: "center", paddingTop: "40vh", color: "white" }}>
+        <div style={{ position: "relative", zIndex: 2, textAlign: "center", color: "white" }}>
             <h1>Welcome to My Portfolio</h1>
             <p>Explore the universe of my work!</p>
         </div>
