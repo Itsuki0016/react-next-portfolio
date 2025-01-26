@@ -158,3 +158,39 @@ body {
 .horizontal-scroll-container::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
 }
+
+
+.articles-container {
+    padding: 20px;
+}
+
+.articles-list {
+    list-style: none;
+    padding: 0;
+}
+
+.article-item {
+    margin-bottom: 20px;
+}
+
+.article-thumbnail {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.article-detail {
+    padding: 20px;
+}
+
+.article-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.article-content {
+    line-height: 1.6;
+}
