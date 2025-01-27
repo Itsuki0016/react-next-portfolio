@@ -1,5 +1,5 @@
 import React from "react";
-import { getArticleDetail } from "../../../libs/microcmsClient";
+import { getArticleDetail } from "../../_libs/microcmsClient";
 
 type Props = {
     params: {
