@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import "./Footer.css";
 
 const Footer = () => {
@@ -17,10 +18,12 @@ const Footer = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img
+                        <Image
                             src="/insta icon.png"
                             alt="Instagram"
                             className="footer-icon"
+                            width={30}
+                            height={30}
                         />
                     </a>
                     <a
@@ -28,10 +31,12 @@ const Footer = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img
+                        <Image
                             src="/github icon.webp"
                             alt="GitHub"
                             className="footer-icon"
+                            width={30}
+                            height={30}
                         />
                     </a>
                 </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { MicroCMSImage } from "microcms-js-sdk";
 
 type Article = {
@@ -23,10 +24,11 @@ const Blogs: React.FC<Props> = ({ articles }) => {
                         {/* Link全体を囲む */}
                         <Link href={`/article/${article.id}`} passHref>
                             <div> 
-                                <img
-                                    src={article.eyecatch?.url || "/default-thumbnail.jpg"}
-                                    alt={article.title}
-                                    className="article-thumbnail"
+                                <Image
+                                    src="/ポーカーチップ計算機　イメージ画像.webp"
+                                    alt="ポーカーチップ計算機　イメージ画像"
+                                    width={400}
+                                    height={400}
                                 />
                                 <h2>{article.title}</h2>
                             </div>
