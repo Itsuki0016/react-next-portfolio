@@ -10,6 +10,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" sizes="32x32" href="/dot-itsuki-icon.jpg" />
+      </head>
       <body>{children}</body>
     </html>
   )

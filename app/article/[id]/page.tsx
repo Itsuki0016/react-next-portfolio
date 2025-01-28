@@ -12,7 +12,6 @@ export default async function ArticleDetailPage({ params }: Props) {
 
     try {
         article = await getArticleDetail(params.id);
-        console.log("Fetched Article Detail:", article); // デバッグログ
     } catch (error) {
         console.error("Error fetching article detail:", error);
         return <div>Failed to load the article. Please try again later.</div>;

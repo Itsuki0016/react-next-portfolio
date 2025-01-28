@@ -15,6 +15,13 @@ export default async function Page() {
             eyecatch: article.eyecatch,
         }
     ));
+    
+    return {
+        props: {
+            articles: data.contents,
+        },
+        revalidata: 60,
+    };
 
     return (
         <Blogs articles={articles} />

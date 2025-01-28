@@ -15,7 +15,7 @@ import Blogs from "./_components/Blog/Blog";
 
 
 const Page = async () => {
-
+    
         const data = await getArticlesList();
     
         if (data.contents.length === 0) {
