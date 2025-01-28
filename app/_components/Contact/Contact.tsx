@@ -1,34 +1,71 @@
 import React, { useState } from "react";
-import "./Contact.css";
 
 const Contact = () => {
-    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [formData, setFormData] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        message: "",
+    });
     const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    const validateForm = () => {
+        if (!formData.firstname || !formData.lastname || !formData.email || !formData.message) {
+            setErrorMessage("All fields are required.");
+            return false;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            setErrorMessage("Please enter a valid email address.");
+            return false;
+        }
+        setErrorMessage("");
+        return true;
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const response = await fetch("/api/send-email", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                ...formData,
-                to: "ktc24a31e0016@edu.kyoto-tech.ac.jp"
-            }),
-        });
+        if (!validateForm()) return;
 
-        if (response.ok) {
-            setSuccessMessage("Your message has been sent successfully!");
-            setFormData({ name: "", email: "", message: "" });
-        } else {
-            setSuccessMessage("There was an error sending your message. Please try again later.");
+        const HUBSPOT_PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID || "48458753";
+        const HUBSPOT_FORM_ID = process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID || "bd6ff507-e991-436f-a82a-7a455d384403";
+
+        const HUBSPOT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
+
+        const payload = {
+            fields: [
+                { name: "firstname", value: formData.firstname },
+                { name: "lastname", value: formData.lastname },
+                { name: "email", value: formData.email },
+                { name: "message", value: formData.message },
+            ],
+        };
+
+        try {
+            const response = await fetch(HUBSPOT_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (response.ok) {
+                setSuccessMessage("Your message has been sent successfully!");
+                setFormData({ firstname: "", lastname: "", email: "", message: "" });
+            } else {
+                throw new Error("Failed to send message.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            setErrorMessage("There was an error sending your message. Please try again.");
         }
     };
 
@@ -43,12 +80,21 @@ const Contact = () => {
                     <div className="form-group">
                         <input
                             type="text"
-                            name="name"
-                            value={formData.name}
+                            name="firstname"
+                            value={formData.firstname}
                             onChange={handleChange}
-                            placeholder="Your Name"
+                            placeholder="First Name"
                             required
-                            className="form-control"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="lastname"
+                            value={formData.lastname}
+                            onChange={handleChange}
+                            placeholder="Last Name"
+                            required
                         />
                     </div>
                     <div className="form-group">
@@ -59,7 +105,6 @@ const Contact = () => {
                             onChange={handleChange}
                             placeholder="Your Email"
                             required
-                            className="form-control"
                         />
                     </div>
                     <div className="form-group">
@@ -70,11 +115,13 @@ const Contact = () => {
                             placeholder="Your Message"
                             rows={5}
                             required
-                            className="form-control"
                         ></textarea>
                     </div>
-                    <button type="submit" className="submit-button">Send Message</button>
+                    <button type="submit" className="submit-button">
+                        Send Message
+                    </button>
                 </form>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
                 {successMessage && <p className="success-message">{successMessage}</p>}
             </div>
         </section>
