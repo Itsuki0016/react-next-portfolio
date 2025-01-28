@@ -76,7 +76,7 @@ const Contact = () => {
             <div className="contact-container">
                 <h2 className="contact-title">Contact Me</h2>
                 <p className="contact-description">
-                    Have a project in mind or just want to say hello? Fill out the form below and let's connect!
+                    Have a project in mind or just want to say hello? Fill out the form below and let is connect!
                 </p>
                 <form onSubmit={handleSubmit} className="contact-form">
                     <div className="form-group">
