@@ -19,7 +19,7 @@ export const getArticlesList = async (queries?: MicroCMSQueries) => {
     try {
         console.log(
             "Fetching from URL:",
-            `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/apis/v1/article-endpoint`
+            `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/apis/v1/article/article`
         );
 
         const listData = await client.getList<Article>({
