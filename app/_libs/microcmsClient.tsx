@@ -8,6 +8,7 @@ export type Article = {
     eyecatch?: MicroCMSImage;
 } & MicroCMSListContent;
 
+
 // MicroCMSクライアント作成
 if (!process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN) {
     throw new Error("NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN is not defined");
