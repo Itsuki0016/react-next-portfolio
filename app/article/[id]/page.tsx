@@ -1,45 +1,56 @@
-import React from "react";
+import { getArticleDetail, getArticlesList } from "@/app/_libs/microcmsClient";
 import Image from "next/image";
-import { getArticleDetail } from "../../_libs/microcmsClient";
+import Link from "next/link";
+import React from "react";
+import "@/app/_styles/globals.css";
 
 type Props = {
-    params: {
-        id: string;
-    };
+    params: { id: string };
 };
 
 export default async function ArticleDetailPage({ params }: Props) {
-    let article = null;
+    // 記事データを取得
+    const article = await getArticleDetail(params.id);
 
-    try {
-        article = await getArticleDetail(params.id);
-            
-    
-    
-    } catch (error) {
-        console.error("Error fetching article detail:", error);
-        return <div>Failed to load the article. Please try again later.</div>;
-    }
-
+    // 記事が見つからなかった場合のハンドリング
     if (!article) {
-        return <div>No article found.</div>;
+        return (
+            <div>
+                <p>記事が見つかりませんでした。</p>
+                <Link href="/">
+                    <a>ホームに戻る</a>
+                </Link>
+            </div>
+        );
     }
 
     return (
-        <div className="article-detail">
+        <div>
             <h1>{article.title}</h1>
-            <Image
-                src="/ポーカーチップ計算機　イメージ画像.webp"
-                alt="ポーカーチップ計算機　イメージ画像"
-                width={400}
-                height={400}
-            />
-            <div
-                dangerouslySetInnerHTML={{
-                    __html: article.content,
-                }}
-                className="article-content"
-            />
+            {article.eyecatch && (
+                <Image 
+                    src ="/ポーカーチップ計算機　イメージ画像.webp"
+                    alt="ポーカー　チップ計算機"
+                    width={400}
+                    height={400}
+                />
+            )}
+            <div dangerouslySetInnerHTML={{ __html: article.content }} />
+            <Link href="/">
+                ホームに戻る
+            </Link>
         </div>
     );
 }
+
+// 動的パスを生成
+export async function generateStaticParams() {
+    const articles = await getArticlesList();
+
+    return articles.contents.map((article) => ({
+        id: article.id,
+    }));
+}
+
+// ISRを設定
+export const revalidate = 60; // 60秒ごとに再生成
