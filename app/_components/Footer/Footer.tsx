@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import "./Footer.css";
 import { useCursorSize } from "@/app/_components/Cursor/CursorBtn"; // Context を取得
@@ -9,12 +9,12 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
     const cursorContext = useCursorSize();
     const [isOpen, setIsOpen] = useState(false);
-    const sliderRef = useRef<HTMLDivElement | null>(null); // スライダーの外部クリック判定用
+    const sliderRef = useRef<HTMLDivElement | null>(null);
 
     // `cursorContext` の存在を確認してエラーを回避
     if (!cursorContext) {
         console.error("useCursorSize must be used within a CursorSizeProvider");
-        return null; // エラー時に何もレンダリングしない
+        return null;
     }
 
     const { imageSize, setImageSize } = cursorContext;
@@ -25,27 +25,19 @@ const Footer = () => {
         return null;
     }
 
-
     // 🔹 外部クリックでスライダーを閉じる
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (sliderRef.current && !sliderRef.current.contains(event.target as Node)) {
-                setIsOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
+    const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
+        if (sliderRef.current && !sliderRef.current.contains(event.target as Node)) {
+            setIsOpen(false);
+        }
+    };
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
-        <footer className="footer">
+        <footer className="footer" onMouseDown={handleClickOutside}>
             <div className="footer-content">
                 <div className="footer-icons">
                     <a
