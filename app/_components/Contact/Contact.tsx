@@ -1,5 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
 import "./Contact.css";
+import { createContact } from "../_action/contact";
 
 
 const Contact = () => {
@@ -34,40 +37,27 @@ const Contact = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!validateForm()) return;
+        if (!validateForm()) {
+            return;
+        }
 
-        const HUBSPOT_PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID || "48458753";
-        const HUBSPOT_FORM_ID = process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID || "bd6ff507-e991-436f-a82a-7a455d384403";
+        const result = await createContact({
+            firstName: formData.firstname,
+            lastName: formData.lastname,
+            email: formData.email,
+            message: formData.message,
+        });
 
-        const HUBSPOT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
-
-        const payload = {
-            fields: [
-                { name: "firstname", value: formData.firstname },
-                { name: "lastname", value: formData.lastname },
-                { name: "email", value: formData.email },
-                { name: "message", value: formData.message },
-            ],
-        };
-
-        try {
-            const response = await fetch(HUBSPOT_ENDPOINT, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
+        if (result.status === "success") {
+            setSuccessMessage(result.message);
+            setFormData({
+                firstname: "",
+                lastname: "",
+                email: "",
+                message: "",
             });
-
-            if (response.ok) {
-                setSuccessMessage("Your message has been sent successfully!");
-                setFormData({ firstname: "", lastname: "", email: "", message: "" });
-            } else {
-                throw new Error("Failed to send message.");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            setErrorMessage("There was an error sending your message. Please try again.");
+        } else {
+            setErrorMessage(result.message);
         }
     };
 

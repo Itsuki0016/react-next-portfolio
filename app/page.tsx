@@ -1,5 +1,3 @@
-'use client';
-
 import React from "react";
 import Navbar from "@/app/_components/Navbar";
 import Intro from "@/app/_components/Intro";
@@ -11,38 +9,35 @@ import "@/app/_styles/globals.css";
 import { getArticlesList } from "./_libs/microcmsClient";
 import Blogs from "./_components/Blog/Blog";
 
-const Page = () => {
-    return getArticlesList().then((data) => {
-        if (data.contents.length === 0) {
-            return <div>No articles available.</div>;
-        }
+const Page = async () => {
+    const data = await getArticlesList()
 
-        const articles = data.contents.map((article) => ({
-            id: article.id,
-            title: article.title,
-            eyecatch: article.eyecatch,
-        }));
-
-        return (
-            <div>
-                <Navbar />
-                <Intro />
-                <About />
-                <Blogs articles={articles} />
-                <Contact />
-                <Sky />
-                <div style={{ position: "relative", zIndex: 2, textAlign: "center", color: "white" }}>
-                    <h1>Welcome to My Portfolio</h1>
-                    <p>Explore the universe of my work!</p>
-                </div>
-                <Footer />
+    return (
+        <div>
+            <Navbar />
+            <Intro />
+            <About />
+            {data.contents.length === 0 
+            ? (
+                <div>No articles available.</div>
+            ) : (
+                <Blogs articles={data.contents.map((article) => (
+                    {
+                        id: article.id,
+                        title: article.title,
+                        eyecatch: article.eyecatch,
+                    }
+                ))} />
+            )}
+            <Contact />
+            <Sky />
+            <div style={{ position: "relative", zIndex: 2, textAlign: "center", color: "white" }}>
+                <h1>Welcome to My Portfolio</h1>
+                <p>Explore the universe of my work!</p>
             </div>
-        );
-    }).catch((error) => {
-        // エラーハンドリング
-        console.error("Error fetching articles:", error);
-        return <div>Error loading articles. Please try again later.</div>;
-    });
+            <Footer />
+        </div>
+    );
 };
 
 export default Page;

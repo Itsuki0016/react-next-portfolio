@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import "@/app/_styles/globals.css";
+import Article from "@/app/_components/Article";
 
 type Props = {
     params: { id: string };
@@ -26,31 +27,15 @@ export default async function ArticleDetailPage({ params }: Props) {
 
     return (
         <div>
-            <h1>{article.title}</h1>
-            {article.eyecatch && (
-                <Image 
-                    src ="/ポーカーチップ計算機　イメージ画像.webp"
-                    alt="ポーカー　チップ計算機"
-                    width={400}
-                    height={400}
-                />
-            )}
-            <div dangerouslySetInnerHTML={{ __html: article.content }} />
-            <Link href="/">
-                ホームに戻る
-            </Link>
+            <Article
+                title={article.title}
+                content={article.content}
+                eyecatch={article.eyecatch}
+            />
         </div>
     );
 }
 
-// 動的パスを生成
-export async function generateStaticParams() {
-    const articles = await getArticlesList();
-
-    return articles.contents.map((article) => ({
-        id: article.id,
-    }));
-}
 
 // ISRを設定
 export const revalidate = 60; // 60秒ごとに再生成

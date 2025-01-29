@@ -36,4 +36,4 @@ function HorizontalLayout() {
         );
     }
     
-    export default HorizontalLayout;
+export default HorizontalLayout;
