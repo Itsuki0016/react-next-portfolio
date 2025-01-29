@@ -82,7 +82,7 @@
 .cursor-size-btn {
     width: 50px; /* サイズ統一 */
     height: 50px; /* サイズ統一 */
-    background-color: #3498db;
+    background-color: #fff;
     color: white;
     font-size: 18px;
     border: none;
@@ -97,6 +97,7 @@
 
 .cursor-size-btn:hover {
     background-color: #2980b9;
+    transform: scale(1.2);
 }
 
 /* 🔹 スライダー（サイズ調整UI） */

@@ -25,19 +25,15 @@ const Footer = () => {
         return null;
     }
 
-    // 🔹 外部クリックでスライダーを閉じる
+    // 🔹 スライダー以外をクリックしたら閉じる
     const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
         if (sliderRef.current && !sliderRef.current.contains(event.target as Node)) {
             setIsOpen(false);
         }
     };
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
     return (
-        <footer className="footer" onMouseDown={handleClickOutside}>
+        <footer className="footer" onClick={handleClickOutside}>
             <div className="footer-content">
                 <div className="footer-icons">
                     <a
@@ -73,22 +69,29 @@ const Footer = () => {
             </div>
 
             {/* スクロールトップボタン */}
-            <button onClick={scrollToTop} className="scroll-top-btn">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="scroll-top-btn">
                 ↑
             </button>
 
             {/* ⚙️ カーソルサイズ調整ボタン */}
-            <div className="cursor-size-adjuster" ref={sliderRef}>
+            <div className="cursor-size-adjuster">
                 <button
                     className="cursor-size-btn"
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={(e) => {
+                        e.stopPropagation(); // 他の要素へのイベント伝播を防ぐ
+                        setIsOpen(!isOpen);
+                    }}
                 >
                     ⚙️
                 </button>
 
                 {/* スライダー (開いたときのみ表示) */}
                 {isOpen && (
-                    <div className="size-slider">
+                    <div
+                        className="size-slider"
+                        ref={sliderRef}
+                        onClick={(e) => e.stopPropagation()} // スライダー内のクリックは無視
+                    >
                         <label className="slider-label">カーソルサイズ</label>
                         <input
                             type="range"
