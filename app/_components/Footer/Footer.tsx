@@ -25,23 +25,6 @@ const Footer = () => {
         return null;
     }
 
-    // 🔹 矢印キーでサイズ変更できるようにする
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if (isOpen) {
-                if (e.key === "ArrowUp") {
-                    setImageSize((prev: number) => Math.min((prev ?? 50) + 5, 150)); // 最大150px
-                } else if (e.key === "ArrowDown") {
-                    setImageSize((prev: number) => Math.max((prev ?? 50) - 5, 20)); // 最小20px
-                }
-            }
-        };
-
-        document.addEventListener("keydown", handleKeyDown);
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-        };
-    }, [isOpen, setImageSize]);
 
     // 🔹 外部クリックでスライダーを閉じる
     useEffect(() => {
