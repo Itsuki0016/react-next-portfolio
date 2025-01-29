@@ -23,11 +23,13 @@ body {
 }
 
 .navbar {
+    position: fixed;
     top: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     transition: 0.3s ease;
+    z-index: 1000;
 }
 
 .navbar-scrolled {
@@ -47,6 +49,7 @@ body {
 .dot {
     width: 8px;
     height: 8px;
+    position: relative;
     background-color: white;
     border-radius: 50%;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -193,4 +196,8 @@ body {
 
 .article-content {
     line-height: 1.6;
+}
+
+.fixed {
+    pointer-events: all;
 }

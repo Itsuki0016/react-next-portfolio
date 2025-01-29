@@ -6,24 +6,24 @@
     width: 100%;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* 全体を縦方向に配置 */
-    justify-content: center; /* 垂直方向の中央揃え */
-    align-items: center; /* 水平方向の中央揃え */
-    text-align: center; /* テキストを中央揃え */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .footer-content {
     display: flex;
-    flex-direction: column; /* 縦方向に配置 */
-    align-items: center; /* 水平方向の中央揃え */
-    gap: 1rem; /* 各要素間の間隔 */
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .footer-icons {
     display: flex;
-    gap: 1.5rem; /* アイコン間の間隔 */
-    justify-content: center; /* 水平方向の中央揃え */
-    align-items: center; /* 垂直方向の中央揃え */
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-icon {
@@ -43,21 +43,22 @@
     margin-top: 0.5rem;
 }
 
+/* 🔹 トップへ戻るボタン（高さ・幅を統一） */
 .scroll-top-btn {
     background-color: white;
     color: black;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 50px;  /* サイズ統一 */
+    height: 50px; /* サイズ統一 */
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     position: fixed;
-    right: 1.5rem;
-    bottom: 1.5rem;
+    right: 20px; /* 右に配置 */
+    bottom: 20px; /* 位置を統一 */
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -65,4 +66,73 @@
 .scroll-top-btn:hover {
     background-color: white;
     transform: scale(1.2);
+}
+
+/* 🔹 カーソルサイズ調整ボタン（高さ・幅を統一） */
+.cursor-size-adjuster {
+    position: fixed;
+    bottom: 20px; /* 位置を統一 */
+    left: 20px; /* 左に配置 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+}
+
+.cursor-size-btn {
+    width: 50px; /* サイズ統一 */
+    height: 50px; /* サイズ統一 */
+    background-color: #3498db;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cursor-size-btn:hover {
+    background-color: #2980b9;
+}
+
+/* 🔹 スライダー（サイズ調整UI） */
+.size-slider {
+    margin-top: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-label {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.slider {
+    width: 120px;
+    margin: 5px 0;
+}
+
+.slider-value {
+    font-size: 12px;
+    color: #555;
+}
+
+/* 🔹 レスポンシブ対応（小さい画面用） */
+@media (max-width: 600px) {
+    .scroll-top-btn,
+    .cursor-size-btn {
+        width: 45px;
+        height: 45px;
+    }
 }
