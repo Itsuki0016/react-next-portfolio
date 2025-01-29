@@ -9,7 +9,7 @@ body {
     padding: 0;
     background: black;
     color: white;
-    overflow-x: hidden; /* 横スクロールを無効化 */
+    overflow-x: hidden;/* 横スクロールを無効化 */
     overflow-y: auto; /* 縦スクロールを有効化 */
 }
 

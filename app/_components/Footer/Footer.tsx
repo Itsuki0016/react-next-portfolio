@@ -82,7 +82,12 @@ const Footer = () => {
                         setIsOpen(!isOpen);
                     }}
                 >
-                    ⚙️
+                    <Image
+                        src="/itsuki.png"
+                        alt="Cursor"
+                        width={30}
+                        height={30}
+                    />↑
                 </button>
 
                 {/* スライダー (開いたときのみ表示) */}

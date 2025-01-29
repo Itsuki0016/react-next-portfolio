@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Jersey+15&display=swap');
+
+
 .footer {
     background-color: #bbbbbb;
     color: #ffffff;
@@ -83,7 +87,7 @@
     width: 50px; /* サイズ統一 */
     height: 50px; /* サイズ統一 */
     background-color: #fff;
-    color: white;
+    color: black;
     font-size: 18px;
     border: none;
     border-radius: 50%;
@@ -102,6 +106,8 @@
 
 /* 🔹 スライダー（サイズ調整UI） */
 .size-slider {
+    font-family: "Jersey 15", sans-serif;
+    font-family: "DotGothic16", sans-serif;
     margin-top: 10px;
     background: white;
     padding: 10px;
