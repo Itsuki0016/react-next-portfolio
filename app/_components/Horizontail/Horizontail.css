@@ -1,4 +1,4 @@
-/* 横スクロール全体の設定 */
+/* 横スクロール全体の設定（背景画像を固定） */
 .horizontal-layout {
     width: 100%;
     height: 100vh;
@@ -7,9 +7,16 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    overflow: hidden; /* 横スクロールを制限 */
+    overflow: hidden;
     background-attachment: fixed;
     filter: brightness(0.7);
+}
+
+/* スマホでは `background-attachment: fixed;` を無効化 (iOSバグ回避) */
+@media (max-width: 768px) {
+    .horizontal-layout {
+        background-attachment: scroll;
+    }
 }
 
 /* 横スクロールコンテナ */
@@ -18,7 +25,7 @@
     scroll-snap-type: x mandatory;
     width: 100%;
     height: 100%;
-    overflow-x: auto; /* スクロール可能にする */
+    overflow-x: auto;
     scroll-behavior: smooth;
     scrollbar-width: none;
     position: relative;
@@ -39,15 +46,50 @@
     align-items: center;
     text-align: center;
     color: cyan;
-    position: relative; /* 背景要素を正しく表示するため */
+    position: relative;
     white-space: pre-wrap;
     font-size: 2.4rem;
 }
 
+/* タブレット・スマホ向けにフォントサイズを調整 */
+@media (max-width: 1024px) {
+    .scroll-section {
+        font-size: 2rem;
+        overflow: hidden;
+        max-width: 100%;
+        margin:0 auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-section {
+        font-size: 1rem;
+        max-width: 100%;
+        margin:0 auto;
+        text-align: center;
+        overflow: hidden;
+    }
+}
+
+/* 見出し（h1）中央揃え */
 .scroll-section h1 {
     font-size: 5rem;
     margin-bottom: 20px;
     color: cyan;
+}
+
+/* タブレット・スマホで見出しのフォントサイズを調整 */
+@media (max-width: 1024px) {
+    .scroll-section h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-section h1 {
+        font-size: 3rem;
+    }
 }
 
 /* 背景アニメーション */
@@ -75,14 +117,14 @@
 
 /* ページインジケーター（スクロールセクション全体で固定） */
 .page-indicator {
-    position: fixed; /* 画面に固定してスクロールの影響を受けない */
-    bottom: 5%; /* 位置を少し下げる */
+    position: fixed;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 12px;
     z-index: 1000;
-    pointer-events: auto; /* クリックを有効化 */
+    pointer-events: auto;
 }
 
 /* 5つのドットは固定で、色だけ変化する */
@@ -101,9 +143,17 @@
     background: cyan;
 }
 
+/* スマホではドットを少し小さくする */
+@media (max-width: 768px) {
+    .page-indicator .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
 /* ページ移動ボタン（スクロールセクション内で固定） */
 .scroll-nav {
-    position: absolute; /* 位置を固定 */
+    position: absolute;
     top: 50%;
     width: 100%;
     display: flex;
@@ -113,6 +163,7 @@
     pointer-events: auto;
 }
 
+/* ページ移動ボタン */
 .nav-button {
     background: rgba(255, 255, 255, 0.4);
     border: none;
@@ -125,11 +176,21 @@
     opacity: 0.8;
 }
 
+/* ボタンのホバー */
 .nav-button:hover {
     background: rgba(255, 255, 255, 0.7);
 }
 
+/* 無効状態 */
 .nav-button:disabled {
     opacity: 0.3;
     cursor: not-allowed;
+}
+
+/* スマホではボタンを少し小さくする */
+@media (max-width: 768px) {
+    .nav-button {
+        font-size: 1.5rem;
+        padding: 8px 16px;
+    }
 }
