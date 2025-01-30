@@ -7,7 +7,6 @@
     color: #ffffff;
     padding: 20px 20px;
     position: relative;
-    width: 100%;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -18,6 +17,7 @@
 
 .footer-content {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
