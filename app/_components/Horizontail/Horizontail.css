@@ -12,6 +12,12 @@
     filter: brightness(0.7);
 }
 
+/* スマホでは `background-attachment: fixed;` を無効化 (iOSバグ回避) */
+@media (max-width: 768px) {
+    .horizontal-layout {
+        background-attachment: scroll;
+    }
+}
 
 /* 横スクロールコンテナ */
 .horizontal-scroll-container {
@@ -64,7 +70,7 @@
         margin:0 auto;
         text-align: center;
         overflow: hidden;
-        background-attachment: fixed;
+        
     }
 }
 
