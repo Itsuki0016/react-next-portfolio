@@ -23,14 +23,14 @@ const Blogs: React.FC<Props> = ({ articles }) => {
                     <li key={article.id} className="article-item">
                         {/* Link全体を囲む */}
                         <Link href={`/article/${article.id}`} passHref>
-                            <div> 
-                                <Image
-                                    src="/ポーカーチップ計算機　イメージ画像.webp"
-                                    alt="ポーカーチップ計算機　イメージ画像"
-                                    width={400}
-                                    height={400}
-                                />
+                            <div>
                                 <h2>{article.title}</h2>
+                                <Image
+                                    src={article.eyecatch?.url || "/no-image.png"}
+                                    alt={article.title}
+                                    width={400}
+                                    height={300}
+                                />
                             </div>
                         </Link>
                     </li>
