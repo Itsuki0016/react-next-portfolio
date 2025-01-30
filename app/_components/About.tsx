@@ -1,5 +1,5 @@
 import React from 'react';
-import Horizontail from "@/app/_components/Horizontail";
+import Horizontail from "@/app/_components/Horizontail/Horizontail";
 import "@/app/_styles/globals.css";
 
 const About = () => (

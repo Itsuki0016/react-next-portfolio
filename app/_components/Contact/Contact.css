@@ -36,18 +36,20 @@
 
 .form-group {
     position: relative;
+    text-align: center;
     margin-bottom: 20px;
     animation: fadeInUp 1.3s ease-in-out;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     background: transparent;
-    border: 2px solid #f1faee;
-    border-radius: 8px;
-    padding: 10px 15px;
-    color: #ffffff;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 10px;
+    color: #f1faee;
     font-size: 1rem;
     outline: none;
     transition: 0.3s;
@@ -55,12 +57,12 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #a8dadc;
+    border-color: #0ecbce;
     box-shadow: 0 0 10px #f1faee;
 }
 
 .submit-button {
-    background: #1d3557;
+    background: #0ba5e7;
     color: #ffffff;
     padding: 10px 20px;
     border: none;
