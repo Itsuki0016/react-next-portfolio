@@ -46,18 +46,20 @@ body {
 .dot {
     width: 20px;
     height: 10px;
+    right:10px;
     position: relative;
     background-color: white;
-    border-radius: 50%;
+    border-radius: 100%;
+    padding: 5px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .menu-icon.open .dot:nth-child(1) {
-    transform: rotate(-38deg) translate(-12px, 9px);
+    transform: rotate(-41deg) translate(-19px, 14px);
 }
 
 .menu-icon.open .dot:nth-child(2) {
-    transform: rotate(-90deg) translate(6px, 4px);
+    transform: rotate(-90deg) translate(3px, 4px);
 }
 
 .menu-icon.open .dot:nth-child(3) {

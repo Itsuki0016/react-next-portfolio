@@ -1,5 +1,6 @@
 import React from "react";
 import "./Switch.css";
+import { LuSun , LuMoonStar } from "react-icons/lu";
 
 interface ThemeSwitchProps {
     toggleTheme: () => void;
@@ -8,14 +9,13 @@ interface ThemeSwitchProps {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ toggleTheme, isDarkMode }) => {
     return (
-        <div className="theme-switch-container">
-            <div
-                className={`theme-switch ${isDarkMode ? "dark" : "light"}`}
-                onClick={toggleTheme}
-            >
-                <div className="theme-toggle-circle"></div>
-            </div>
-        </div>
+        <button 
+            onClick={toggleTheme} 
+            className="theme-switch-button"
+            aria-label="Toggle Dark Mode"
+        >
+            {isDarkMode ? <LuMoonStar size={40} color="#FEA" /> : <LuSun size={40} color="#FFA" />}
+        </button>
     );
 };
 
