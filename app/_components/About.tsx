@@ -4,7 +4,7 @@ import "@/app/_styles/globals.css";
 
 const About = () => (
     <section id="about">
-        <h2>About Me</h2>
+        <h2 className='about-title'>About Me</h2>
         <div>
             <Horizontail />
         </div>

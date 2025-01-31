@@ -4,7 +4,6 @@
 body {
     font-family: "Jersey 15", sans-serif;
     font-family: "DotGothic16", sans-serif;
-    font-size: 30px;
     background: black;
     color: white;
     overflow: hidden;/* 横スクロールを無効化 */
@@ -30,6 +29,9 @@ body {
     z-index: 1000;
 }
 
+.about-title{
+    font-size:3.5rem;
+}
 
 .menu-icon {
     display: flex;
@@ -112,6 +114,7 @@ body {
     list-style: none;
     padding: 0;
 }
+
 
 .article-item {
     margin-bottom: 20px;
