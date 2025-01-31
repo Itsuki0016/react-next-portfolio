@@ -10,7 +10,7 @@ const HorizontalLayout: React.FC = () => {
         { title: "Thank you for reading", content: "" },
         { title: "Introduction", content: "このポートフォリオを読んでいただきありがとうございます。\n私は村田一生と申します。京都デザイン＆テクノロジーの学生です。\nこのポートフォリオでは私のスキルやポートフォリオを紹介しています。\nどうぞよろしくお願いいたします。" },
         { title: "Skills", content: "私の扱うことのできる言語は、\nPython\nJavaScript（React, Tailwind）\nHTML、CSS" },
-        { title: "Now", content: "現在は一年生の進級制作展「We are」に向けて、\nクラスメイトと合同でプロジェクトを進めています。" },
+        { title: "Now", content: "現在は一年生の進級制作展「We are」に向けて、\nクラスメイトと合同でプロジェクトを進めています。\nArticleに詳しい情報を記載していますので、\nお時間のある方はぜひクリックして見てください。" },
         { title: "Future", content: "二年次からは AWS などの開発に特化した\n企業プロジェクトに積極的に参加したいです。" },
     ];
     
