@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import "./Footer.css";
+import { LuArrowUpToLine } from "react-icons/lu";
 import { useCursorSize } from "@/app/_components/Cursor/CursorBtn"; // Context を取得
 
 const Footer = () => {
@@ -70,7 +71,7 @@ const Footer = () => {
 
             {/* スクロールトップボタン */}
             <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="scroll-top-btn">
-                ↑
+                <LuArrowUpToLine size={30} />
             </button>
 
             {/* ⚙️ カーソルサイズ調整ボタン */}
