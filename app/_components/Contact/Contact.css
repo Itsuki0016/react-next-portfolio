@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Jersey+15&display=swap');
+
+
 .contact-section {
     color: #ffffff;
     padding: 60px 20px;
@@ -62,13 +66,14 @@
 }
 
 .submit-button {
+    font-family: "DotGothic16", sans-serif;
     background: #0ba5e7;
     color: #ffffff;
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     transition: background 0.3s, transform 0.2s;
     animation: popIn 1.4s ease-in-out;
