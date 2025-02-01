@@ -23,17 +23,14 @@
     gap: 1rem;
 }
 
-.footer-icons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-}
 
-.footer-icon {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+.footer-icons {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .footer-icon:hover {
@@ -141,5 +138,11 @@
         color:#333;
         width: 45px;
         height: 45px;
+    }
+    .footer-icons {
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 }

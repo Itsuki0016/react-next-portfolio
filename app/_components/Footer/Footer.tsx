@@ -4,6 +4,12 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import "./Footer.css";
 import { LuArrowUpToLine } from "react-icons/lu";
+import { MdOutlineImportContacts } from "react-icons/md";
+import { GrInstagram } from "react-icons/gr";
+import { SlSocialGithub } from "react-icons/sl";
+import { FaReact } from "react-icons/fa6";
+import { TiCss3 } from "react-icons/ti";
+import { TbBrandNextjs } from "react-icons/tb";
 import { useCursorSize } from "@/app/_components/Cursor/CursorBtn"; // Context を取得
 
 const Footer = () => {
@@ -37,35 +43,38 @@ const Footer = () => {
         <footer className="footer" onClick={handleClickOutside}>
             <div className="footer-content">
                 <div className="footer-icons">
+                    <a/>
                     <a
-                        href=""
-                    ></a>
+                        href="#contact"
+                    >
+                        <MdOutlineImportContacts size={40} color="cyan"/>
+                    </a>
                     <a
                         href="https://www.instagram.com/itsuki_256/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Image
-                            src="/insta icon.png"
-                            alt="Instagram"
-                            className="footer-icon"
-                            width={30}
-                            height={30}
-                        />
+                        <GrInstagram size={40} color="cyan"/>
                     </a>
                     <a
                         href="https://github.com/Itsuki0016/react-next-portfolio"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Image
-                            src="/github icon.webp"
-                            alt="GitHub"
-                            className="footer-icon"
-                            width={30}
-                            height={30}
-                        />
+                        <SlSocialGithub size={40} color="cyan"/>
                     </a>
+                    <a/>
+                    <a/>
+                    <a href="https://reactjs.org/">
+                        <FaReact size={40} color="cyan"/>
+                    </a>
+                    <a href="https://developer.mozilla.org/ja/docs/Web/CSS">
+                        <TiCss3 size={40} color="cyan"/>
+                    </a>
+                    <a href="https://nextjs.org/">
+                        <TbBrandNextjs size={40} color="cyan"/>
+                    </a>
+                    <a/>
                 </div>
                 <p className="footer-copyright">
                     &copy; {currentYear} Made with ♥ by Itsuki.
