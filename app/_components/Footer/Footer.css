@@ -139,6 +139,7 @@
 @media (max-width: 600px) {
     .scroll-top-btn,
     .cursor-size-btn {
+        color:#333;
         width: 45px;
         height: 45px;
     }
