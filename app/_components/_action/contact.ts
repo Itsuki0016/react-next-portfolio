@@ -1,7 +1,7 @@
 "use server";
 
-const HUBSPOT_PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID 
-const HUBSPOT_FORM_ID = process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID 
+const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID 
+const HUBSPOT_FORM_ID = process.env.HUBSPOT_FORM_ID 
 
 const HUBSPOT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
 

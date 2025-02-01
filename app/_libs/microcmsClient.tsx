@@ -10,17 +10,17 @@ export type Article = {
 
 
 // MicroCMSクライアント作成
-if (!process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN) {
+if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error("NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN is not defined");
 }
 
-if (!process.env.NEXT_PUBLIC_MICROCMS_API_KEY) {
+if (!process.env.MICROCMS_API_KEY) {
     throw new Error("NEXT_PUBLIC_MICROCMS_API_KEY is not defined");
 }
 
 export const client = createClient({
-    serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN,
-    apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY,
+    serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
+    apiKey: process.env.MICROCMS_API_KEY,
 });
 
 // 記事一覧を取得

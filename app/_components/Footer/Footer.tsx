@@ -38,6 +38,9 @@ const Footer = () => {
             <div className="footer-content">
                 <div className="footer-icons">
                     <a
+                        href=""
+                    ></a>
+                    <a
                         href="https://www.instagram.com/itsuki_256/"
                         target="_blank"
                         rel="noopener noreferrer"
