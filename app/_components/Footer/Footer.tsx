@@ -47,32 +47,32 @@ const Footer = () => {
                     <a
                         href="#contact"
                     >
-                        <MdOutlineImportContacts size={40} color="cyan"/>
+                        <MdOutlineImportContacts size={50} color="deeppink"/>
                     </a>
                     <a
                         href="https://www.instagram.com/itsuki_256/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <GrInstagram size={40} color="cyan"/>
+                        <GrInstagram size={50} color="deeppink"/>
                     </a>
                     <a
                         href="https://github.com/Itsuki0016/react-next-portfolio"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <SlSocialGithub size={40} color="cyan"/>
+                        <SlSocialGithub size={50} color="deeppink"/>
                     </a>
                     <a/>
                     <a/>
                     <a href="https://reactjs.org/">
-                        <FaReact size={40} color="cyan"/>
+                        <FaReact size={50} color="cyan"/>
                     </a>
                     <a href="https://developer.mozilla.org/ja/docs/Web/CSS">
-                        <TiCss3 size={40} color="cyan"/>
+                        <TiCss3 size={50} color="cyan"/>
                     </a>
                     <a href="https://nextjs.org/">
-                        <TbBrandNextjs size={40} color="cyan"/>
+                        <TbBrandNextjs size={50} color="cyan"/>
                     </a>
                     <a/>
                 </div>
