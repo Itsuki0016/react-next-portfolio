@@ -14,7 +14,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ toggleTheme, isDarkMode }) =>
             className="theme-switch-button"
             aria-label="Toggle Dark Mode"
         >
-            {isDarkMode ? <LuMoonStar size={40} color="#FEA" /> : <LuSun size={40} color="#FFA" />}
+            {isDarkMode ? <LuMoonStar size={40} color="#FEA" /> : <LuSun size={40} color="#ff8c00" />}
         </button>
     );
 };
