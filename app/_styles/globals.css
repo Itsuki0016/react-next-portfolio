@@ -55,27 +55,29 @@ body {
 }
 
 .menu-icon.open .dot:nth-child(1) {
-    transform: rotate(-41deg) translate(-19px, 14px);
+    transform: rotate(-40deg) translate(-19px, 14px);
 }
 
 .menu-icon.open .dot:nth-child(2) {
-    transform: rotate(-90deg) translate(3px, 4px);
+    transform: rotate(-90deg) translate(2.7px, 4px);
 }
 
 .menu-icon.open .dot:nth-child(3) {
-    transform: rotate(-138deg) translate(-10px, 6px);
+    transform: rotate(-139deg) translate(-12px, 6px);
 }
 
 .menu-dropdown {
     position: absolute;
     font-size:2rem;
+    background: rgba(201, 198, 198, 0.5);
     top: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     list-style: none;
     overflow: hidden;
-    padding: 0;
+    padding: 10px;
     margin: 0;
+    transition: 0.3s;
 }
 
 
